@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đại lý bán hàng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div id="container">
+      <header id="main-header" style="color:#ffff; background-color: #1a9b1a; height: 100px;">
+        <div class="container" style="padding: 30px ;">
+          <h1 id="header-title">Quản lý đại lý bán hàng </h1>
+        </div>
+      </header>
+      <div class="content" id="content">
+        <div id="main" class="card card-body" style="margin:30px 60px 30px 60px;">
+         <h2 class="title">Thêm thông tin đại lý</h2>
+         <form class="form-inline mb-3">
+           <input type="text" class="form-control mr-5" >
+           <input type="submit" class="btn btn-light" value="Submit">
+         </form>
+         <h2 class="title" style="margin-top: 30px;">Danh sách các đại lý</h2>
+         <ul id="items" class="list-group">
+           <li class="list-group-item"><a href="#">Item 1</a></li>
+           <li class="list-group-item"><a href="#">Item 2</a></li>
+           <li class="list-group-item"><a href="#">Item 3</a> </li>
+           <li class="list-group-item"><a href="#">Item 4</a></li>
+         </ul>
+         <br>
+         <button onclick="alert('Bạn đã thêm thông tin đại lý')" id='button 'class="btn btn-dark btn-block">Thêm vào danh sách đại lý</button>
+
+        </div>
+       </div>
+    </div>
+    <script> 
+        var items = document.getElementsByClassName('list-group-item');
+        for (var i =0 ; i<items.length;i++){
+            if (i%2==1){
+                items[i].style.backgroundColor = 'yellow';
+            }
+            else {
+                items[i].style.backgroundColor='#cccccc';
+            }
+        }
+        var header = document.querySelector('#main-header');
+        header.style.borderBottom = 'solid 4px #ccc';
+
+        var submit = document.querySelector('input[type="submit"]');
+        submit.value= "Thêm";
+        var content = document.querySelector('#main');
+        content.style.borderBottom = 'solid 3px #ccc';
+
+        //Traversing the DOM
+        //parent Node
+        var itemsList = document.querySelector('#items');
+        console.log(itemsList.parentNode);
+        itemsList.parentNode.style.backgroundColor='#f4f4f4';
+       
+        //CreateElenment3
+        var newDiv = document.createElement('div');
+        newDiv.className = 'hello';
+        newDiv.id = 'hello1';
+
+        newDiv.setAttribute('title','hello div');
+        var newDivText = document.createTextNode('bookYen-cửa hàng sách số 1 Đông Dương');
+        newDiv.appendChild(newDivText);
+
+        var container = document.querySelector('main-header .container')
+        var h1 = document.querySelector('header-title');
+        console.log(container);
+        console.log(h1);
+        container.insertBefore(newDiv,h1);
+
+
+
+    
+    </script>
+    
+    
+</body>
+</html>
